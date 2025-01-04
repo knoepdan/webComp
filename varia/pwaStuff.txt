@@ -1,0 +1,45 @@
+Progressive webapps needs 2 things: 
+- manifest.json
+- webworker
+
+## PWA overall links
+
+https://www.freecodecamp.org/news/build-a-pwa-from-scratch-with-html-css-and-javascript/
+
+
+## manifest etc. (including icon)
+
+https://developer.mozilla.org/de/docs/Web/Manifest
+
+https://www.appicon.co/  -> to generate icons
+
+
+## service worker
+
+See: https://joshuatz.com/posts/2021/strongly-typed-service-workers/   (service worker and typescript)
+or see subfolder /pwaExampleCodeTS   
+-> as of now.. easier to just use js file (but we need to update its content each time :-()
+
+https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers  
+
+
+
+
+## Other
+
+
+Vite writes some kind of manifest with the following example config (in file vite4.config.js). But I believe it's a different kind of manifest so we don't need it. 
+
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  build: {
+    // generate .vite/manifest.json in outDir
+    outDir: "dist",
+    manifest: true,
+    //   rollupOptions: {
+    //     // overwrite default .html entry
+    //     input: '/path/to/main.js',
+    //   },
+  },
+});

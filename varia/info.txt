@@ -1,0 +1,10 @@
+
+
+
+### convert png files to cur files (for cursor)
+https://convertio.co/de/png-cur/
+
+
+
+### deploy static site to azure
+https://learn.microsoft.com/en-us/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript&pivots=github

@@ -1,0 +1,6 @@
+# to exclude
+/node_modules/*
+/dist/*
+/distLocal/*
+/distAzure/*
+

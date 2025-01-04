@@ -1,0 +1,72 @@
+<html>
+<head>
+	<script>
+		console.log('0 (error expected as func is called not yet defined)');
+		delay(() => {console.log('001');}, 0); // will throw an error as delay is not defined
+	</script>
+
+	<script>
+		console.log('A');
+		const delay = async(fn, ms) => {
+			return new Promise((resolve, reject) => {
+				window.setTimeout(() => {
+					try {
+						const result = fn();
+						resolve(result);
+					} catch (e) {
+						reject(e);
+					}
+				}, ms);
+			});
+		};
+
+	</script>
+</head>
+<body>
+Check console statements and source code to see how js behaves
+	<script>
+		console.log('B');
+		window.setTimeout(() => {console.log('B1 setTimeout 0');}, 0);
+	</script>
+
+	<script>
+		console.log('C');
+		throw new Error('i am thrown after C');
+	</script>
+
+	<script>
+		console.log('D');
+		delay(() => {console.log('D1 delayed by 0');}, 0);
+		console.log('D2');
+	</script>
+
+	<script>
+		console.log('E');
+		(async function () {
+			await delay(() => {console.log('E1 awaited delayed by 0 in immediate func');}, 0);
+			console.log('E2 (after awaited E1)');
+		})();
+		console.log('E3');
+	</script>
+
+	<script>
+		console.log('F');
+		(async function () {
+			delay(() => {console.log('F1 awaited delayed by 0 in immediate func');}, 0);
+			console.log('F2 (after F1 which is not awaited)');
+		})();
+		console.log('F3');
+	</script>
+
+	<script>
+		(function () {
+			console.log('G (immediatly invoked func)');
+		})();
+	</script>
+	
+	<script>
+		console.log('H ');
+	</script>
+
+</body>
+</html>

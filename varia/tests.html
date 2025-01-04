@@ -1,0 +1,124 @@
+<html>
+
+<head>
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.inner-box {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			padding: 0;
+			margin: 0;
+
+		}
+	</style>
+	<title>Game Edgar</title>
+</head>
+
+<body>
+	<br /><br /></br>
+	<div style="padding:100px; width: 500px; height: 450px; background-color: aliceblue; position: relative;">
+
+		<div id="image-container" class="inner-box">
+			<canvas id="one" class="inner-box" style="z-index: 2; "></canvas>
+
+			<canvas id="two" class="inner-box" style="z-index: 3 "></canvas>
+
+		</div>
+	</div>
+
+	<script>
+
+		function drawImage(canvas, source) {
+			const context = canvas.getContext("2d");
+			const base_image = new Image();
+			base_image.src = source; //'img/base.png';
+			base_image.onload = function () {
+				context.drawImage(base_image, 0, 0);
+			}
+		}
+
+		function getMousePos(canvas, evt) {
+			const rect = canvas.getBoundingClientRect();
+			return {
+				x: Math.floor((evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width),
+				y: Math.floor((evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height)
+			};
+		}
+
+		// http://www.java2s.com/example/javascript/canvas/adding-mouse-hover-animation-to-html5-canvas-drawings.html
+		function handleMouseMove(e) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			const canvas = e.currentTarget;
+			const pos = getMousePos(canvas, e);
+
+			const ctx = canvas.getContext("2d");
+			ctx.save();  // save the current state (kind of optional here)
+			//ctx.lineWidth = 100;
+
+
+			//ctx.globalAlpha = 0.1; -> affects transparency of color that is drawn
+			//	ctx.strokeStyle = 'rgba(255, 0, 0, 0.5)';
+			//	ctx.strokeStyle = "blue";
+
+			//	ctx.globalCompositeOperation = "source-over";
+			ctx.globalCompositeOperation = 'destination-out';
+			ctx.beginPath();
+			const arcX = pos.x;
+			const arcY = pos.y;
+			ctx.arc(arcX, arcY, 7, 0, 2 * Math.PI);
+			ctx.stroke();
+			//console.log('X ' + pos.x + ' Y ' + pos.y + '    e.pageY: ' + e.pageY + '        offsetTop: ' + e.currentTarget.offsetTop);
+
+			// https://www.patrick-wied.at/blog/how-to-create-transparency-in-images-with-html5canvas
+			ctx.restore(); // restore the state as it was when this function was called (kind of optional here.. counterpart to save that is previously called)
+		}
+
+
+		function init() {
+
+			const one = document.getElementById("one");
+			drawImage(one, 'birdSmaller.jpg');
+
+			const c = document.getElementById("two");
+			const ctx = c.getContext("2d");
+			ctx.fillStyle = "red";
+			ctx.fillRect(0, 0, c.width, c.height);
+			c.addEventListener('mousemove', handleMouseMove);
+		}
+
+		window.onload = function () {
+			init();
+		};
+	</script>
+
+
+	<div>
+		<ul>
+			<li>
+
+				https://stackoverflow.com/questions/71514492/canvas-drawing-color-transparent
+				<br />
+				https://jsfiddle.net/epmo9buy/
+			</li>
+			<li></li>
+		</ul>
+
+
+
+	</div>
+
+</body>
+
+</html>

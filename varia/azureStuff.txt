@@ -1,0 +1,21 @@
+
+
+## azure infos
+
+https://portal.azure.com/#home
+
+EdgarsGame
+
+
+
+## Production
+https://thankful-wave-0cf92cb1e.4.azurestaticapps.net/
+
+
+########### GENERAL ########### 
+
+### deploy static site to azure
+https://learn.microsoft.com/en-us/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript&pivots=github
+
+### configure deployment
+https://learn.microsoft.com/en-us/azure/static-web-apps/build-configuration?tabs=identity&pivots=github-actions

@@ -1,0 +1,106 @@
+// //import cssClass, { Icon } from 'styles/cssClasses';
+// //import { Colors } from 'styles/exos/exosCssClasses';
+
+// //import styles from './notification.module.scss';
+
+// export type NotificationType = 'success' | 'none' | 'error' | 'warning' | 'info';
+
+// const buildEl = <T extends HTMLElement>(
+//     parent: HTMLElement | null,
+//     newElement: string,
+//     cssClasses: string[] | null,
+// ): T => {
+//     const el: T = document.createElement(newElement) as T;
+//     if (cssClasses) {
+//         el.classList.add(...cssClasses);
+//     }
+
+//     if (parent) {
+//         parent.appendChild(el);
+//     }
+//     return el;
+// };
+
+// export const getDefaultTimeout = (type: NotificationType): number => {
+//     return type === 'success' ? 3000 : 5000;
+// };
+
+// export const getIcon = (type: NotificationType) => {
+//     let icon: Icon;
+//     switch (type) {
+//         case 'success':
+//             icon = 'custom-icon-check';
+//             break;
+//         case 'warning':
+//             icon = 'custom-icon-warning';
+//             break;
+//         case 'error':
+//             icon = 'custom-icon-inactive';
+//             break;
+//         default:
+//             break;
+//     }
+//     return icon;
+// };
+
+// /*
+// shows the message to the user (Remark: interface is deliberatly rather complicated as usually a simplified interface that contains some application logic like a uiContext should be used)
+// */
+// const displayNotifyMessage = (msg: string, icon: Icon, iconColor: Colors, timeout: number) => {
+//     msg = msg + '';
+
+//     // deliberatly outside of react because: a) works with thirdparty/startup/errorboundaries, b) better render performace  c) more independant
+
+//     /*  Html structure to be built
+//     <div className={styles.notifyBox}>
+//         <div>
+//             {icon && <span className={[styles.icon, icon, type]}></span>}
+//         </div>
+//         <div className={styles.messageContainer}>
+//             <div className={styles.messageMultiline}>
+//                 <span>{text}</span>
+//             </div>
+//         </div>
+//         <i>{closeLinkIcon}</i>
+//     </div>
+//     */
+
+//     let top = buildEl(null, 'div', [styles.notifyBox, styles.fadeIn]);
+//     const removeTop = () => {
+//         top.classList.add(styles.fadeOut);
+//         setTimeout(() => {
+//             if (top) {
+//                 top.remove();
+//             }
+//         }, 420);
+//     };
+
+//     // icon
+//     const iconCont = buildEl(top, 'div', null);
+//     if (icon) {
+//         buildEl(iconCont, 'span', [styles.icon, icon, iconColor]);
+//     }
+
+//     // message
+//     const msgContEl = buildEl(top, 'div', [styles.messageContainer]);
+//     const msgMultiEl = buildEl(msgContEl, 'div', [styles.messageMultiline]);
+//     const textEl = buildEl(msgMultiEl, 'div', null);
+//     textEl.innerText = msg; // will html encode
+
+//     // close link
+//     const closeLink = buildEl(top, 'i', [cssClass('custom-icon_close'), styles.closeLink]);
+//     closeLink.onclick = () => {
+//         removeTop();
+//         return false;
+//     };
+
+//     setTimeout(() => {
+//         removeTop();
+//     }, timeout);
+
+//     // finally add element to dom
+//     document.body.appendChild(top);
+// };
+
+// export { Colors }; // reexport for convenience
+// export default displayNotifyMessage;

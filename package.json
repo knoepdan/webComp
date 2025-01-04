@@ -1,0 +1,21 @@
+{
+  "name": "edgars_game",
+  "version": "1.0.0",
+  "description": "A game :-)",
+  "author": "Dan",
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8"
+  },
+  "scripts": {
+    "dev": "vite --base /",
+    "buildAzure": "tsc && vite build --base / && xcopy .\\dist distAzure /s /i /y",
+    "build": "tsc && vite build --base /EdisGame",
+    "copyToLocal": "xcopy .\\dist distLocal /s /i /y",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "vite": "^6.0.5"
+  }
+}

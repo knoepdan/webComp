@@ -1,0 +1,15 @@
+{
+  "name": "Edis Game",
+  "short_name": "Edi",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fdfdfd",
+  "theme_color": "#db4938",
+  "icons": [
+    {
+      "src": "icon/72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
-  "name": "edgars_game",
+  "name": "web_comp",
   "version": "1.0.0",
-  "description": "A game :-)",
+  "description": "Testing web components",
   "author": "Dan",
   "engines": {
     "node": ">=16",
@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "vite --base /",
     "buildAzure": "tsc && vite build --base / && xcopy .\\dist distAzure /s /i /y",
-    "build": "tsc && vite build --base /EdisGame",
+    "build": "tsc && vite build --base /WebComp",
     "copyToLocal": "xcopy .\\dist distLocal /s /i /y",
     "preview": "vite preview"
   },

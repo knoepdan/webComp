@@ -1,6 +1,6 @@
 {
-  "name": "Edis Game",
-  "short_name": "Edi",
+  "name": "Web Components",
+  "short_name": "WebComp",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fdfdfd",

@@ -2,6 +2,18 @@ import GameComponent from "./gameComponent.js";
 import TileComponent from "./tileComponent.js";
 import StackComponent from "./stackComponent.js";
 
+///------------
+
+const hmr: any = import.meta;
+if (hmr.hot) {
+  // HMR code
+  console.log("vite hot reload active");
+} else {
+  console.log("NO vite hot reload");
+}
+
+///------------
+
 interface IGameInfo {
   type?: string;
   imageSrc?: string;

@@ -1,0 +1,22 @@
+########
+
+1. detect changes and inform client > bundler
+2. exchange module > custom code with help of bundler client API
+3. rerender
+
+
+
+######## Links
+Hot reload done manually
+https://dev.to/omar4ur/vite-hot-module-replacement-a-complete-example-pkg
+
+https://github.com/OmarShehata/vite-hot-reload-example
+
+
+Other links
+https://bjornlu.com/blog/hot-module-replacement-is-easy
+
+
+https://vite.dev/guide/api-hmr
+
+
